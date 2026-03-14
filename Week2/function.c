@@ -84,14 +84,21 @@ int addNewClass(struct st_class* c[], int csize){
 void editClass(struct st_class* c[], int csize){
 	struct st_class* p;
 	int code;
-	printf(">> Enter a code of class > ");
-	scanf("%d", &code);
+	while(1){
+		printf(">> Enter a code of class > ");
+		scanf("%d", &code);
 
-	
-	// You must complete this section.
+		p = NULL;
+		for(int i=0; i<csize; i++){
+			if(c[i]->code==code){
+				p = c[i];
+				break;
+			}
+		}
+		if(p != NULL) break;
+		printf("> No such class.\n");
+	}
 
-
-	
 	printf("> Current: [%d] %s [credits %d - %s]\n",p->code, p->name, p->unit, kname[p->grading-1]);
 	printf("> Enter new class name > ");
 	scanf("%s", p->name);
