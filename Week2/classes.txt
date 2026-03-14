@@ -1,4 +1,4 @@
-101 C 3 1
+101 C++ 3 1
 102 CodingStudio 1 2
 109 ICT 3 1
 110 Reading 1 2

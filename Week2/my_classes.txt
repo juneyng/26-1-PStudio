@@ -1,0 +1,5 @@
+My Classes
+1. [101] C++ [credit 3 - A+~F]
+2. [110] Reading [credit 1 - P/F]
+3. [109] ICT [credit 3 - A+~F]
+All : 3 classes, 7 credits (A+~F 6 credits, P/F 1 credits)
