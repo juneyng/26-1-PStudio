@@ -115,11 +115,46 @@ void editClass(struct st_class* c[], int csize){
 // You must make all these functions.
 
 int applyMyClasses(int my[], int msize, struct st_class* c[], int csize){
+	int code, choice;
 
+	while(1){
+		printf(">> Enter a class code > ");
+		scanf("%d", &code);
 
+		int found = -1;
+		for(int i=0; i<csize; i++){
+			if(c[i]->code == code){
+				found = i;
+				break;
+			}
+		}
+		if(found == -1){
+			printf(">> No such code of class.\n");
+			continue;
+		}
 
-	
-	return 0;
+		int dup = 0;
+		for(int i=0; i<msize; i++){
+			if(my[i] == code){
+				dup = 1;
+				break;
+			}
+		}
+		if(dup){
+			printf(">> Code duplicated!\n");
+			continue;
+		}
+
+		my[msize] = code;
+		msize++;
+		printf(">> [%d] %s [credit %d - %s]\n", c[found]->code, c[found]->name, c[found]->unit, kname[c[found]->grading-1]);
+
+		printf(">> Add more?(1:Yes 2:No) > ");
+		scanf("%d", &choice);
+		if(choice != 1) break;
+	}
+
+	return msize;
 }
 
 void printMyClasses(int my[], int msize, struct st_class* c[], int csize){
