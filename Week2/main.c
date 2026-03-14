@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "function.h"
+
 
 int main(void) {
 	int no;	// menu number 
