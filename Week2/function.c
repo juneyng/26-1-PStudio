@@ -132,7 +132,6 @@ int applyMyClasses(int my[], int msize, struct st_class* c[], int csize){
 			printf(">> No such code of class.\n");
 			continue;
 		}
-
 		int dup = 0;
 		for(int i=0; i<msize; i++){
 			if(my[i] == code){
@@ -148,8 +147,7 @@ int applyMyClasses(int my[], int msize, struct st_class* c[], int csize){
 		my[msize] = code;
 		msize++;
 		printf(">> [%d] %s [credit %d - %s]\n", c[found]->code, c[found]->name, c[found]->unit, kname[c[found]->grading-1]);
-
-		printf(">> Add more?(1:Yes 2:No) > ");
+		printf(">> Add more? (1:Yes 2:No) > ");
 		scanf("%d", &choice);
 		if(choice != 1) break;
 	}
@@ -158,10 +156,17 @@ int applyMyClasses(int my[], int msize, struct st_class* c[], int csize){
 }
 
 void printMyClasses(int my[], int msize, struct st_class* c[], int csize){
-
-
-	
-
+	int total = 0;
+	for(int i=0; i<msize; i++){
+		for(int j=0; j<csize; j++){
+			if(c[j]->code == my[i]){
+				printf("%d. [%d] %s [credit %d - %s]\n", i+1, c[j]->code, c[j]->name, c[j]->unit, kname[c[j]->grading-1]);
+				total += c[j]->unit;
+				break;
+			}
+		}
+	}
+	printf("All : %d credits\n", total);
 }
 
 void saveMyClass(int my[], int msize, struct st_class* c[], int csize){
